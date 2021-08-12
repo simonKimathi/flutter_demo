@@ -33,8 +33,15 @@ class MyAppState extends State<MyApp>{
   @override
   Widget build(BuildContext context) {
     var quiz=[
-      "Why are Quite ?",
-      "Talk to me?"
+      {'quiz':'Whats your favourite color?',
+        'answer':['red','blue','green','other']
+      },
+      {'quiz':'Whats your favourite food?',
+        'answer':['chicken','chips','greens','beef']
+      },
+      {'quiz':'Whats your favourite animal?',
+        'answer':['cow','cat','goat','sheep']
+      },
     ];
     return MaterialApp(
       home: Scaffold(
