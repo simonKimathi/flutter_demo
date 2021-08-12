@@ -22,6 +22,9 @@ class MyAppState extends State<MyApp>{
   void printAnswer(){
     setState(() {
       quizIndex= quizIndex+1;
+      if(quizIndex >1){
+        quizIndex=0;
+      }
     });
     print("hello world"+quizIndex.toString());
   }
