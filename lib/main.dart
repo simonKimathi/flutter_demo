@@ -18,16 +18,19 @@ class MyApp extends StatefulWidget{
 
 }
 class MyAppState extends State<MyApp>{
-  int quizIndex=0;
+  int _quizIndex=0;
 
-  void printAnswer(){
+  void _printAnswer(){
+    print("hello world 1"+_quizIndex.toString());
     setState(() {
-      quizIndex= quizIndex+1;
-      if(quizIndex > 1){
-        quizIndex=0;
-      }
+      _quizIndex= _quizIndex+1;
+
+      print("hello world 2"+_quizIndex.toString());
+      // if(_quizIndex > 1){
+      //   _quizIndex=0;
+      // }
     });
-    print("hello world"+quizIndex.toString());
+    print("hello world 3"+_quizIndex.toString());
   }
 
   @override
@@ -50,10 +53,13 @@ class MyAppState extends State<MyApp>{
         ),
         body: Column(
           children:[
-            Question(quiz[quizIndex]),
-            Answer(printAnswer),
-            Answer(printAnswer),
-            Answer(printAnswer),
+            Question(
+                quiz[_quizIndex]['quiz'] ?.toString() ?? '',
+            ),
+            ...( quiz[_quizIndex]['answer'] as List<String> )
+                .map((answer){
+              return Answer(_printAnswer,answer);
+            }).toList(),
           ],
         ),
       ),
