@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './question.dart';
+import 'answer.dart';
 
 void main(){
   runApp(MyApp());
@@ -22,7 +23,7 @@ class MyAppState extends State<MyApp>{
   void printAnswer(){
     setState(() {
       quizIndex= quizIndex+1;
-      if(quizIndex >1){
+      if(quizIndex > 1){
         quizIndex=0;
       }
     });
@@ -43,20 +44,9 @@ class MyAppState extends State<MyApp>{
         body: Column(
           children:[
             Question(quiz[quizIndex]),
-            ElevatedButton(
-              child: Text('I dont know'),
-              onPressed: printAnswer,
-            ),
-            ElevatedButton(
-              child: Text('You caused it'),
-              onPressed:() => print('pressed 2'),
-            ),
-            ElevatedButton(
-              child: Text('i caused it'),
-              onPressed:() {
-                    print('pressed 3');
-              },
-            )
+            Answer(printAnswer),
+            Answer(printAnswer),
+            Answer(printAnswer),
           ],
         ),
       ),
